@@ -1,0 +1,79 @@
+@import '~styles/common/variables';
+
+*,
+*:after,
+*::before {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+	overflow-y: scroll;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+html, body {
+	// text-rendering: geometricPrecision;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	font-family: $font-main;
+	color: $body-default;
+	font-size: 14px;
+	font-size: 1.4rem;
+	line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+ul, ol {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	/* &:hover, &:visited, &:active {
+		color: inherit;
+	} */
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	width: 100%;
+	height: auto;
+}
+
+button {
+	border: none;
+	background:none;
+	box-shadow: none;
+	text-shadow: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	cursor: pointer;
+	&:hover, &:focus, &:active {
+		// border: none;
+		// background:none;
+		outline: none;
+	}
+}
+
+
+input, select, textarea, button {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+input:focus {
+	outline: none;
+}
