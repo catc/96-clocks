@@ -3,7 +3,7 @@ const { resolve } = require('path');
 const config = {
 	context: resolve(__dirname),
 	entry: {
-		bundle: 'src/index.js',
+		bundle: 'src/index.ts',
 	},
 	output: {
 		filename: '[name].js',
