@@ -19,9 +19,9 @@ module.exports = {
 		PROD
 	**********/
 	// assets directory relative to root of project
-	ASSETS_DIR: './assets',
+	ASSETS_DIR: './docs',
 	// directory where build assets will be resolved to on server.
 	// so if your static assets are server from `/static/vendor.js`,
 	// then change to `/static/`
-	BUILD_PUBLIC_PATH: '/assets/'
+	BUILD_PUBLIC_PATH: '/'
 }

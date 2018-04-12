@@ -52,12 +52,8 @@ const config = {
 		extensions: ['.ts', '.tsx', '.js', '.jsx'],
 		alias: {
 			src: resolve(__dirname, 'src'),
-			components: 'src/components',
-			api: 'src/api',
 			styles: 'src/styles',
-			routes: 'src/routes',
 			utils: 'src/utils',
-			store: 'src/store',
 		}
 	},
 
