@@ -8,11 +8,7 @@ const EASING_DURATION = 4550;
 // const EASING_DURATION = 1550;
 
 export default class ClockNumber {
-	number: number;
-
 	constructor(row, number){
-		this.number = number;
-
 		const p = pattern[number];
 
 		// create `clock-number` container
@@ -31,15 +27,17 @@ export default class ClockNumber {
 	_clocks = [];
 
 	setNumber(newNumber: number){
-		this.number = newNumber;
-
 		const p = pattern[newNumber];
 
 		const clocks = this._clocks;
+		// set final rotate value and animation function for each clock
 		p.forEach((time: number[], i) => {
 			clocks[i].prepareAnimation(time)
 		})
 
+		this._cancelRAF();
+
+		// create animation function
 		this._animateFn = this._createAnimateFn();
 	}
 
@@ -78,6 +76,7 @@ export default class ClockNumber {
 	// cancel RAF
 	RF?: number;
 	_cancelRAF(){
+		console.log('cancelling!');
 		window.cancelAnimationFrame(this.RF)
 	}
 }

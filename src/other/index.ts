@@ -1,12 +1,10 @@
 import times from 'lodash/times'
 import random from 'lodash/random'
 
+import ClockNumber from './clock-number'
+
 const row1 = document.querySelector('.clock-number-wrapper__row.one')
 const row2 = document.querySelector('.clock-number-wrapper__row.two')
-// const root = document.getElementById('root');
-
-// import Clock from './clock';
-import ClockNumber from './clock-number'
 
 class SuperClock {
 	items = Array<ClockNumber>;
@@ -17,6 +15,8 @@ class SuperClock {
 
 	zz(){
 		const numbers = times(4, () => random(0, 9))
+
+		console.log('numbers are', numbers);
 		
 		this.items.forEach((item, i) => {
 			const number = numbers[i]

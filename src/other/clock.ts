@@ -10,16 +10,16 @@ const CIRCLE_RADIUS = 3
 
 
 export default class Clock {
-	constructor(container, a, b){
+	constructor(container: HTMLElement, a: number, b: number){
 		this._setup(container, a, b)
 	}
 
-	line1?: HTMLElement;
-	line2?: HTMLElement;
+	line1?: SVGElement;
+	line2?: SVGElement;
 	line1Angle?: number;
 	line2Angle?: number;
 
-	_setup(container, a: number, b: number){
+	_setup(container: HTMLElement, a: number, b: number){
 		// create div container to wrap everything
 		const div = document.createElement('div')
 		div.classList.add('clock-item');
@@ -44,7 +44,7 @@ export default class Clock {
 		// add div to dom
 		container.appendChild(div)
 	}
-	_createLine(angle: number): HTMLElement {
+	_createLine(angle: number): SVGElement {
 		const line = document.createElementNS('http://www.w3.org/2000/svg', 'line')
 		line.setAttribute('x1', RADIUS)
 		line.setAttribute('y1', RADIUS)
@@ -53,7 +53,7 @@ export default class Clock {
 		line.setAttribute('transform', `rotate(${angle})`)
 		return line;
 	}
-	_createCircle(svg: HTMLElement){
+	_createCircle(svg: SVGElement){
 		const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
 		circle.setAttribute('cx', RADIUS)
 		circle.setAttribute('cy', RADIUS)
@@ -61,8 +61,8 @@ export default class Clock {
 		svg.appendChild(circle)
 	}
 
-	anim1: null;
-	anim2: null;
+	anim1?: (easeVal: number) => void;
+	anim2?: (easeVal: number) => void;
 
 	prepareAnimation(timeAngles: number[]){
 		const a = timeAngles[0];
@@ -76,7 +76,7 @@ export default class Clock {
 		const lineKey = `line${lineNumber}`;
 		const lineAngleKey = `line${lineNumber}Angle`
 		
-		const line: HTMLElement = this[lineKey];
+		const line: SVGElement = this[lineKey];
 
 		let startAngle: number = this[lineAngleKey]%360;
 
@@ -96,6 +96,7 @@ export default class Clock {
 			toTravel += 360
 		}
 		// should aim to do close to at least 1 full rotation
+		// ensure that all lines move, including those that don't need to
 		if (toTravel < 180){
 			toTravel += 360
 		}
@@ -107,12 +108,14 @@ export default class Clock {
 			// counter-clockwise rotation for second hand
 			return function (val: number){
 				const angle = (startAngle - toTravel * val) % 360
+				this[lineAngleKey] = angle
 				line.setAttribute('transform', `rotate(${angle})`)
 			}
 		} else {
 			// regular rotation
 			return function (val: number){
 				const angle = (startAngle + toTravel * val) % 360
+				this[lineAngleKey] = angle
 				line.setAttribute('transform', `rotate(${angle})`)
 			}
 		}
