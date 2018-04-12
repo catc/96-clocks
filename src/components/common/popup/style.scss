@@ -1,0 +1,22 @@
+@import '~styles/common/variables';
+@import '~styles/common/mixins';
+
+.popup {
+	position: absolute;
+	z-index: 5;
+
+	&.type_simple-options {
+		@include shadow(1);
+		transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+		&:hover {
+			@include shadow(2);
+		}		
+	}
+
+	&.anim_fade {
+		animation: 0.2s ease fadeIn;
+	}
+	&.anim_grow-fade {
+		animation: 0.15s ease fadeInGrow both;
+	}
+}

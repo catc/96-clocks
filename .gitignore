@@ -1,7 +1,3 @@
 node_modules/
 .awcache/
 
-src/api
-src/components
-src/routes
-src/store

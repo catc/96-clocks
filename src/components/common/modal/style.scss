@@ -1,0 +1,131 @@
+@import '~styles/common/variables';
+
+$vertical-margin: 40px;
+.modal {
+	&__wrapper {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 20;
+		overflow: hidden;
+		
+		display: block;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+	&__bg {
+		position: fixed;
+		height: 100%;
+
+		top: 0;
+		right: 0;
+		left: 0;
+		
+		background: #232323;
+		opacity: 0;
+
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+
+		transition: opacity 0.2s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+		will-change: opacity;
+	}
+
+	&__dialog {
+		position: relative;
+
+		// &.width_450 { max-width: 450px; }
+		// &.width_380 { max-width: 380px; }
+		// &.width_820 { max-width: 820px; min-width: 820px; }
+
+		&.type_center {
+			padding: 0 10px;
+			margin: $vertical-margin auto;
+			max-width: 680px;
+		}
+		&.type_constrain-height {
+			max-height: 100%;
+			// transition: 0.15s ease-out;
+		}
+		&.type_sidebar {
+			max-width: 460px;
+			margin: 0 0 0 auto;
+			height: 100%;
+		}
+		&.type_full-screen {
+			width: 100%;
+			max-width: none;
+			// width: auto;
+		}
+	}
+
+	&__content {
+		// border-radius: 4px;
+		// box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.20);
+
+		// animation types
+		&.anim_scale-fade-in {
+			opacity: 0;
+			transform: scale(0.5) translateZ(0);
+			transition: 
+				opacity 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946),
+				transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+			will-change: opacity, transform;
+			&.state_visible {
+				opacity: 1;
+				transform: scale(1) translateZ(0);
+			}
+		}
+		&.anim_fade-in {
+			opacity: 0;
+			transition: opacity 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+			will-change: opacity;
+			&.state_visible {
+				opacity: 1;
+			}
+		}
+
+
+		&.type_constrain-height {
+			// max-height: calc(100% - #{$vertical-margin * 2});
+			max-height: 100%; 	// vertical margins are set automatically
+			overflow-y: auto;
+		}
+		&.type_sidebar {
+			height: 100%;
+			max-height: 100%;
+			overflow-y: auto;
+			transform: translate3d(100%, 0, 0);
+			will-change: transform;
+			// transition: transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+			transition: transform 0.3s;
+			transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); 	// easeoutquad
+			box-shadow: -8px -1px 12px 1px rgba(47, 47, 47, 0.34);
+			&.state_visible {
+				transform: translate3d(0, 0, 0);
+			}
+		}
+		&.type_full-screen {
+			height: 100%;
+		}
+	}
+
+	&__scrollbar-measure {
+		width: 100px;
+		height: 100px;
+		overflow: scroll;
+		position: absolute;
+		top: -9999px;
+	}
+}
+
+// modal element styling
+.modal {
+	&__content.type_rounded {
+		border-radius: 3px;
+		box-shadow: 0 0 14px rgba(0,0,0,0.12), 0 14px 14px rgba(0,0,0,0.24);
+		overflow: hidden;
+	}
+}
