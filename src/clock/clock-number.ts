@@ -1,11 +1,10 @@
 import Clock from './clock';
-import pattern from 'utils/times';
+import pattern from 'utils/number-patterns';
+import random from 'lodash/random'
 
 import Bezier from 'bezier-easing';
 const EASING = [1.00, 0.88, 0.69, 1.02]
 const bezier = Bezier(...EASING)
-const EASING_DURATION = 4550;
-// const EASING_DURATION = 1550;
 
 export default class ClockNumber {
 	constructor(row, number){
@@ -47,13 +46,14 @@ export default class ClockNumber {
 		let startTime: number;
 
 		const clocks = this._clocks;
+		const duration = random(3200, 5000);
 
 		return function(now){
 			if (!startTime){
 				startTime = now;
 			}
 			// determine how much time is left
-			const progress = (now - startTime) / EASING_DURATION;
+			const progress = (now - startTime) / duration;
 
 			// convert to % bezier completion
 			const val = bezier(progress)
@@ -63,7 +63,7 @@ export default class ClockNumber {
 				c.anim2(val);
 			})
 
-			if (now - startTime < EASING_DURATION){
+			if (now - startTime < duration){
 				this.startAnimation()
 			}
 		}.bind(this)
@@ -76,7 +76,6 @@ export default class ClockNumber {
 	// cancel RAF
 	RF?: number;
 	_cancelRAF(){
-		console.log('cancelling!');
 		window.cancelAnimationFrame(this.RF)
 	}
 }

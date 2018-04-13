@@ -1,13 +1,5 @@
-// import Bezier from 'bezier-easing';
-
-// constants
-// import { EASING_DURATION } from './constants';
-
 const RADIUS: number = 30;
-const CIRCLE_RADIUS = 3
-// const EASING = [1.00, 0.88, 0.69, 1.02]
-// const bezier = Bezier(...EASING)
-
+const CIRCLE_RADIUS = 4
 
 export default class Clock {
 	constructor(container: HTMLElement, a: number, b: number){
