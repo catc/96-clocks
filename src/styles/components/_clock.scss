@@ -1,0 +1,63 @@
+@import '~styles/common/variables';
+
+.clock-item {
+	// border: 0px solid #ddd;
+	position: relative;
+	// padding: 5px;
+	background: $bg-color;
+	&:after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		border: $border-width solid $border-color;
+		width: 100%;
+		height: 100%;
+		border-radius: 100%;
+	}
+	display: inline-block;
+
+	margin: $clock-spacing;
+
+	$size: $clock-width;
+	width: $size;
+	height: $size;
+	border-radius: $size;
+
+	line {
+		transform-origin: center;
+		stroke-width: $stroke-width;
+		stroke: $line-color;
+		// transform-origin: center bottom;
+	}
+	circle {
+		fill: $dot-color;
+	}
+}
+
+.clock-number {
+	width: $clock-width * 4 + 4 * $clock-spacing * 2;
+}
+
+.clock-number-wrapper {
+	// text-align: center;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	&__row {
+		display: block;
+		> div {
+			display: inline-block;
+		}
+	}
+
+	&__controls {
+		position: absolute;
+		bottom: 20px;
+		text-align: center;
+		width: 100%;
+	}
+}
+

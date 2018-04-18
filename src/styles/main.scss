@@ -2,8 +2,17 @@
 @import "base/global";
 
 @import "components/other";
-@import "components/clock/clock";
+@import "components/simple-hint";
+@import "components/controls";
+@import "components/clock";
+
+html {
+	background: white;
+}
 
 body {
-	// ...
+	background: white;
+	width: 100%;
+	background: $body;
 }
+

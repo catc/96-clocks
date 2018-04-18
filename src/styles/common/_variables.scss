@@ -14,7 +14,39 @@ $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
 // ******** app stuff ********
 
-// clock stuff
-// $clock-width: 100px;
-// $clock-readius: 50px;
-// $clock-width: $clock-readius * 2;
+// clock variables (also used in .jsx)
+$clock-radius: 30px;
+
+// sizing
+$clock-width: $clock-radius * 2;
+$clock-spacing: 2px;
+$stroke-width: 5px;
+$border-width: 5px;
+
+// styles
+
+// light
+$line-color: #4e4e4e;
+$line-color: #6d6d6d; // <--- change to that?
+// $line-color: #2196F3; // <--- change to that?
+// $line-color: #546e7a;
+// $dot-color: #5f5f5f;
+$dot-color: darken($line-color, 10%);
+
+
+$border-color: #f0f0f0;
+$bg-color: #fefefe;
+$body: #f9f9f9;
+
+
+$icon-fill: #607d8b;
+$icon-fill: $line-color;
+
+
+// $icon-fill: #4e4e4e;
+// yellow
+// $line-color: #4e4e4e;
+// $dot-color: #5f5f5f;
+// $border-color: #ffd044;
+// $bg-color: #fefefe;
+// $body: #ffd968;
