@@ -26,6 +26,7 @@
 		border-radius: 2px;
 		$active: rgba($icon-fill, 0.08);
 		border: 1px solid transparent;
+		position: relative;
 		&:hover {
 			background: $active;
 			border-color: rgba($icon-fill, 0.05);
