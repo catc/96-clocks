@@ -1,11 +1,11 @@
 import 'styles/main.scss';
 
 import clock from 'src/clock'
-import clockButton from 'src/dom/clock-button'
-import 'src/dom/fullscreen'
+import followtime from 'src/features/follow-time'
+import 'src/features/full-screen'
+import CustomNumbers from 'src/features/custom-numbers'
 
 const randomButton: HTMLElement = document.querySelector('.type_random');
-const customSelectButton: HTMLElement = document.querySelector('.type_select');
 const moonButton: HTMLElement = document.querySelector('.type_day');
 
 // shuffle
@@ -13,13 +13,11 @@ randomButton.addEventListener('click', () => {
 	clock.randomNumbers()
 }, false);
 
-// time
-clockButton.el.addEventListener('click', () => {
-	clock.followTime()
-}, false);
+// follow time
+followtime.setupEventListener(clock.followTime.bind(clock));
 
-// select custom numbers
-// ...
+// custom numbers
+new CustomNumbers(clock.animateCustomNumbers.bind(clock))
 
 // toggle day/night mode
 // ...

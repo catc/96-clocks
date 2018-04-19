@@ -2,7 +2,7 @@ import times from 'lodash/times'
 import random from 'lodash/random'
 
 import ClockNumber from './clock-number'
-import clockButton from 'src/dom/clock-button'
+import followtime from 'src/features/follow-time';
 import { currentTimeToNumbers } from 'utils/time'
 
 const row1 = document.querySelector('.clock-number-wrapper__row.one')
@@ -13,6 +13,14 @@ class SuperClock {
 
 	constructor(...clockNumbers){
 		this.clockNumbers = clockNumbers;
+	}
+
+	animateCustomNumbers(...numbers: number[]){
+		if (numbers.length < 4){
+			throw new Error('Must provide at least 4 numbers');
+		}
+		this._clearFollowTime();
+		this._animate(...numbers)
 	}
 
 	// generate random numbers and animate
@@ -38,7 +46,7 @@ class SuperClock {
 	tt?: number;
 	followTime(skipAnimation: boolean){
 		this._clearFollowTime();
-		clockButton.setActive(true)
+		followtime.setActive(true)
 
 		// update numbers to current time
 		if (!skipAnimation){
@@ -55,7 +63,7 @@ class SuperClock {
 	}
 	_clearFollowTime(){
 		window.clearTimeout(this.tt);
-		clockButton.setActive(false)
+		followtime.setActive(false)
 	}
 }
 

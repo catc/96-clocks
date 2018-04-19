@@ -40,8 +40,8 @@ class FullScreen {
 	_handleFullScreen(){
 		window.clearTimeout(this._timeout);
 		this._timeout = window.setTimeout(() => {
-			// const isFullScreen = window.fullScreen || (window.innerWidth == screen.width && window.innerHeight == screen.height)
-			const isFullScreen = window.fullScreen || (window.innerHeight == screen.height) // FOR TESTING ONLY - when console is open
+			const isFullScreen = window.fullScreen || (window.innerWidth == screen.width && window.innerHeight == screen.height)
+			// const isFullScreen = window.fullScreen || (window.innerHeight == screen.height) // FOR TESTING ONLY - when console is open
 			if (isFullScreen){
 				this.controls.classList.add('state_fullscreen')
 			} else {

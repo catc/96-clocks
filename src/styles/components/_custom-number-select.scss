@@ -1,0 +1,119 @@
+
+.cns {
+	position: fixed;
+	z-index: 20;
+	overflow: hidden;
+	overflow-y: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	visibility: hidden;
+
+	// modal stuff
+	&__bg {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		background: rgba(black, 0.7);
+		opacity: 0;
+		transition: 0.2s ease-out;
+	}
+	&__content {
+		max-width: 680px;
+		// margin: 40px auto;
+		margin: 0 auto;
+		position: relative;
+		padding: 20px;
+		background: white;
+		border-radius: 3px;
+		box-shadow: 0 0 14px rgba(0, 0, 0, 0.12), 0 14px 14px rgba(0, 0, 0, 0.24);
+
+		top: 50%;
+		transform: translateY(-50%);
+		opacity: 0;
+		transition: 0.35s ease;
+	}
+	&.state_active {
+		visibility: visible;
+	}
+	&.state_active &__bg {
+		opacity: 1;
+	}
+	&.state_active &__content {
+		opacity: 1;
+	}
+
+
+	// modal content stuff
+	&__grids {
+		padding-bottom: 20px;
+	}
+	&__number-grid {
+		display: inline-block;
+		max-width: 25%;
+		text-align: center;
+		padding: 0 10px;
+		// border: 1px solid red;
+
+		$margin: 4px;
+		button {
+			width: calc((100% - #{$margin} * 2) / 3);
+			border: 1px solid #ddd;
+			margin-bottom: 6px;
+			border-radius: 3px;
+			padding: 5px 0;
+			&:not(:nth-child(3n+1)) {
+				margin-right: $margin;
+			}
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+	&__selected-number {
+		display: inline-block;
+		margin-bottom: 14px;
+		font-size: 5rem;
+		width: 120px;
+		// border: 1px solid #ddd;
+		border-bottom: 4px solid #ddd;
+		width: 80px;
+		display: block;
+		margin: 0 auto 20px;
+		font-weight: bold;
+		// margin-bottom: 20px;
+		// border-radius: 2px;
+
+	}
+	&__options {
+		text-align: center;
+		border-top: 1px solid #ddd;
+		padding-top: 20px;
+		button {
+			&:first-child {
+				margin-right: 20px;
+			}
+
+			/* display: inline-block;
+			transition: background 0.2s ease, border-color 0.2s ease;
+			border-radius: 2px;
+			$active: rgba($icon-fill, 0.08);
+			border: 1px solid transparent;
+			&:hover {
+				background: $active;
+				border-color: rgba($icon-fill, 0.05);
+				svg {
+					fill: darken($icon-fill, 10%);
+				}
+			}
+			&.state_active {
+				background: $active;
+			} */
+		}
+	}
+}
