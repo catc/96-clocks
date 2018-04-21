@@ -8,7 +8,7 @@ import 'src/features/full-screen'
 import CustomNumbers from 'src/features/custom-numbers'
 
 const randomButton: HTMLElement = document.querySelector('.type_random');
-const moonButton: HTMLElement = document.querySelector('.type_day');
+const colorModeButton: HTMLElement = document.querySelector('.type_color-mode');
 
 // shuffle
 randomButton.addEventListener('click', () => {
@@ -20,7 +20,9 @@ randomButton.addEventListener('click', () => {
 followTimeButton.setupEventListener(clock.followTime);
 
 // custom numbers
-new CustomNumbers(clock.animateCustomNumbers)
+new CustomNumbers(clock.animateCustomNumbers);
 
 // toggle day/night mode
-// ...
+colorModeButton.addEventListener('click', () => {
+	document.body.classList.toggle('state_dark');
+}, false);

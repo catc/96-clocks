@@ -1,4 +1,27 @@
 @import '~styles/common/variables';
+@import '~styles/common/mixins';
+
+.clock-number-wrapper {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	padding: 70px 0 30px;
+	&__row {
+		display: block;
+		@include mq(max, 560px){
+			text-align: center;
+		}
+		> div {
+			display: inline-block;
+		}
+	}
+}
+
+.clock-number {
+	width: $clock-width * 4 + 4 * $clock-spacing * 2;
+}
 
 .clock-item {
 	// border: 0px solid #ddd;
@@ -34,30 +57,3 @@
 		fill: $dot-color;
 	}
 }
-
-.clock-number {
-	width: $clock-width * 4 + 4 * $clock-spacing * 2;
-}
-
-.clock-number-wrapper {
-	// text-align: center;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	align-items: center;
-	&__row {
-		display: block;
-		> div {
-			display: inline-block;
-		}
-	}
-
-	&__controls {
-		position: absolute;
-		bottom: 20px;
-		text-align: center;
-		width: 100%;
-	}
-}
-
