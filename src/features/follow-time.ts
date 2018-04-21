@@ -1,9 +1,10 @@
+const BUTTON_CLASS = '.type_clock';
 
 class Followtime {
 	button: HTMLElement;
 
 	constructor(){
-		this.button = document.querySelector('.type_clock') as HTMLElement;
+		this.button = document.querySelector(BUTTON_CLASS) as HTMLElement;
 	}
 
 	setActive(isActive: boolean){

@@ -1,8 +1,5 @@
-import times from 'lodash/times'
-import random from 'lodash/random'
-
 import ClockNumber from './clock-number'
-import followtime from 'src/features/follow-time';
+import followTimeButton from 'src/features/follow-time';
 import { currentTimeToNumbers } from 'utils/time'
 
 const row1 = document.querySelector('.clock-number-wrapper__row.one')
@@ -15,26 +12,19 @@ class SuperClock {
 		this.clockNumbers = clockNumbers;
 	}
 
-	animateCustomNumbers(...numbers: number[]){
+	animateCustomNumbers = (...numbers: number[]) => {
+		this._clearFollowTime();
+		this._animate(...numbers)
+	}
+
+	_animate(...numbers: number[]){
 		if (numbers.length < 4){
 			throw new Error('Must provide at least 4 numbers');
 		}
-		this._clearFollowTime();
-		this._animate(...numbers)
-	}
 
-	// generate random numbers and animate
-	randomNumbers(){
-		this._clearFollowTime();
-
-		const numbers = times(4, () => random(0, 9))
-		this._animate(...numbers)
-	}
-
-	_animate(num1: number = 0, num2: number = 1, num3: number = 5, num4: number = 8){
-		const args = arguments
+		// const args = arguments
 		this.clockNumbers.forEach((item, i) => {
-			const number = args[i]
+			const number = numbers[i]
 			item.setNumber(number)
 		})
 		this.clockNumbers.forEach(item => {
@@ -44,9 +34,9 @@ class SuperClock {
 
 	// changes according to time
 	tt?: number;
-	followTime(skipAnimation: boolean){
+	followTime = (skipAnimation: boolean) => {
 		this._clearFollowTime();
-		followtime.setActive(true)
+		followTimeButton.setActive(true)
 
 		// update numbers to current time
 		if (!skipAnimation){
@@ -63,7 +53,7 @@ class SuperClock {
 	}
 	_clearFollowTime(){
 		window.clearTimeout(this.tt);
-		followtime.setActive(false)
+		followTimeButton.setActive(false)
 	}
 }
 

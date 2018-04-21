@@ -63,6 +63,10 @@ class CustomNumbers {
 				const num = e.target.dataset.number;
 				if (gridNum && num){
 					this.selected[gridNum].innerText = num
+					this.selected[gridNum].classList.remove('state_flash')
+					setTimeout(() => {
+						this.selected[gridNum].classList.add('state_flash')
+					}, 0)
 				}
 			}, false)
 		});

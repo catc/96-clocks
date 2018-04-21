@@ -1,4 +1,11 @@
 
+@keyframes flashBorder {
+	from {
+		// border-color: #b2ebf2;
+		border-color: #80DEEA;
+	}
+}
+
 .cns {
 	position: fixed;
 	z-index: 20;
@@ -52,6 +59,7 @@
 	// modal content stuff
 	&__grids {
 		padding-bottom: 20px;
+		text-align: center;
 	}
 	&__number-grid {
 		display: inline-block;
@@ -67,18 +75,25 @@
 			margin-bottom: 6px;
 			border-radius: 3px;
 			padding: 5px 0;
+			font-family: monospace;
+			font-size: 1.5rem;
+			color: $line-color;
+			transition: 0.15s ease;
 			&:not(:nth-child(3n+1)) {
 				margin-right: $margin;
 			}
 			&:last-child {
 				margin-right: 0;
 			}
+			&:hover {
+				border-color: darken(#ddd, 10%);
+			}
 		}
 	}
 	&__selected-number {
 		display: inline-block;
 		margin-bottom: 14px;
-		font-size: 5rem;
+		// font-size: 5rem;
 		width: 120px;
 		// border: 1px solid #ddd;
 		border-bottom: 4px solid #ddd;
@@ -86,8 +101,13 @@
 		display: block;
 		margin: 0 auto 20px;
 		font-weight: bold;
-		// margin-bottom: 20px;
-		// border-radius: 2px;
+		color: darken($line-color, 5%);
+
+		font-family: monospace;
+		font-size: 7rem;
+		&.state_flash {
+			animation: flashBorder 1.6s ease-out forwards;
+		}
 
 	}
 	&__options {
@@ -95,25 +115,17 @@
 		border-top: 1px solid #ddd;
 		padding-top: 20px;
 		button {
+			padding: 6px 12px;
+			text-transform: uppercase;
+			font-size: 1.1rem;
+			color: darken($line-color, 10%);
+			transition: 0.2s ease-out;
+			&:hover {
+				background: rgba(black, 0.05);
+			}
 			&:first-child {
 				margin-right: 20px;
 			}
-
-			/* display: inline-block;
-			transition: background 0.2s ease, border-color 0.2s ease;
-			border-radius: 2px;
-			$active: rgba($icon-fill, 0.08);
-			border: 1px solid transparent;
-			&:hover {
-				background: $active;
-				border-color: rgba($icon-fill, 0.05);
-				svg {
-					fill: darken($icon-fill, 10%);
-				}
-			}
-			&.state_active {
-				background: $active;
-			} */
 		}
 	}
 }
