@@ -1,4 +1,5 @@
 @import '~styles/common/variables';
+@import '~styles/common/mixins';
 
 .controls {
 	position: absolute;
@@ -15,8 +16,11 @@
 	svg {
 		width: 20px;
 		height: 20px;
-		fill: $icon-fill;
+		fill: $l-icon-fill;
 		transition: fill 0.2s ease-out;
+		@include dark(){
+			fill: $d-icon-fill;
+		}
 	}
 
 	&__button {
@@ -24,18 +28,31 @@
 		display: inline-block;
 		transition: background 0.2s ease, border-color 0.2s ease;
 		border-radius: 2px;
-		$active: rgba($icon-fill, 0.08);
 		border: 1px solid transparent;
 		position: relative;
+		$active: rgba($l-icon-fill, 0.08);
 		&:hover {
 			background: $active;
-			border-color: rgba($icon-fill, 0.05);
+			border-color: rgba($l-icon-fill, 0.05);
 			svg {
-				fill: darken($icon-fill, 10%);
+				fill: darken($l-icon-fill, 10%);
 			}
 		}
 		&.state_active {
 			background: $active;
+		}
+		@include dark(){
+			$active: darken($d-body, 3.5%);
+			&:hover {
+				background: $active;
+				border-color: rgba($d-icon-fill, 0.09);
+				svg {
+					fill: white;
+				}
+			}
+			&.state_active {
+				background: $active;
+			}
 		}
 	}
 

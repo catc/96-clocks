@@ -1,6 +1,8 @@
 @import "base/normalize";
 @import "base/global";
 
+@import '~styles/common/mixins';
+
 @import "components/other";
 @import "components/simple-hint";
 @import "components/controls";
@@ -12,8 +14,10 @@ html {
 }
 
 body {
-	background: white;
 	width: 100%;
-	background: $body;
+	background: $l-body;
+	&.state_dark {
+		background: $d-body;
+	}
 }
 

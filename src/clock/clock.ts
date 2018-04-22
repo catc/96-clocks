@@ -1,5 +1,5 @@
 const RADIUS: number = 30;
-const CIRCLE_RADIUS = 4
+const CIRCLE_RADIUS = 4;
 
 export default class Clock {
 	constructor(container: HTMLElement, a: number, b: number){
@@ -41,7 +41,9 @@ export default class Clock {
 		line.setAttribute('x1', RADIUS)
 		line.setAttribute('y1', RADIUS)
 		line.setAttribute('x2', RADIUS)
-		line.setAttribute('y2', '0')
+		// set 1 instead of zero so length of line is just 29px
+		// and doesn't end up showing/bleeding through clock border
+		line.setAttribute('y2', '1')
 		line.setAttribute('transform', `rotate(${angle})`)
 		return line;
 	}

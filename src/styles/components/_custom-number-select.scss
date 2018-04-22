@@ -26,17 +26,18 @@
 		left: 0;
 		-webkit-backface-visibility: hidden;
 		backface-visibility: hidden;
-		background: rgba(black, 0.7);
+		background: rgba(black, 0.8);
 		opacity: 0;
 		transition: 0.2s ease-out;
+		@include dark(){
+			background: rgba(black, 0.6);
+		}
 	}
 	&__content {
 		max-width: 680px;
-		// margin: 40px auto;
 		margin: 0 auto;
 		position: relative;
 		padding: 20px;
-		background: white;
 		border-radius: 3px;
 		box-shadow: 0 0 14px rgba(0, 0, 0, 0.12), 0 14px 14px rgba(0, 0, 0, 0.24);
 
@@ -44,6 +45,10 @@
 		transform: translateY(-50%);
 		opacity: 0;
 		transition: 0.35s ease;
+		background: white;
+		@include dark(){
+			background: $d-body;
+		}
 	}
 	&.state_active {
 		visibility: visible;
@@ -61,12 +66,31 @@
 		padding-bottom: 20px;
 		text-align: center;
 	}
+	&__selected-number {
+		display: inline-block;
+		margin-bottom: 14px;
+		width: 120px;
+		border-bottom: 4px solid #ddd;
+		width: 80px;
+		display: block;
+		margin: 0 auto 20px;
+		font-weight: bold;
+		color: darken($l-clock-line, 5%);
+
+		font-family: monospace;
+		font-size: 7rem;
+		&.state_flash {
+			animation: flashBorder 1.6s ease-out forwards;
+		}
+		@include dark(){
+			color: $d-clock-line;
+		}
+	}
 	&__number-grid {
 		display: inline-block;
 		max-width: 25%;
 		text-align: center;
 		padding: 0 10px;
-		// border: 1px solid red;
 
 		$margin: 4px;
 		button {
@@ -77,7 +101,7 @@
 			padding: 5px 0;
 			font-family: monospace;
 			font-size: 1.5rem;
-			color: $line-color;
+			color: $l-clock-line;
 			transition: 0.15s ease;
 			&:not(:nth-child(3n+1)) {
 				margin-right: $margin;
@@ -88,43 +112,36 @@
 			&:hover {
 				border-color: darken(#ddd, 10%);
 			}
+			@include dark(){
+				color: white;
+				border-color: $d-clock-bg;
+				&:hover {
+					border-color: lighten($d-clock-bg, 10%);
+				}
+			}
 		}
-	}
-	&__selected-number {
-		display: inline-block;
-		margin-bottom: 14px;
-		// font-size: 5rem;
-		width: 120px;
-		// border: 1px solid #ddd;
-		border-bottom: 4px solid #ddd;
-		width: 80px;
-		display: block;
-		margin: 0 auto 20px;
-		font-weight: bold;
-		color: darken($line-color, 5%);
-
-		font-family: monospace;
-		font-size: 7rem;
-		&.state_flash {
-			animation: flashBorder 1.6s ease-out forwards;
-		}
-
 	}
 	&__options {
 		text-align: center;
 		border-top: 1px solid #ddd;
 		padding-top: 20px;
+		@include dark(){
+			border-color: $d-tooltip-bg;
+		}
 		button {
 			padding: 6px 12px;
 			text-transform: uppercase;
 			font-size: 1.1rem;
-			color: darken($line-color, 10%);
+			color: darken($l-clock-line, 10%);
 			transition: 0.2s ease-out;
 			&:hover {
-				background: rgba(black, 0.05);
+				background: rgba(black, 0.06);
 			}
 			&:first-child {
 				margin-right: 20px;
+			}
+			@include dark(){
+				color: $d-clock-line;
 			}
 		}
 	}

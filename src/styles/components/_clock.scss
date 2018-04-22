@@ -24,36 +24,43 @@
 }
 
 .clock-item {
-	// border: 0px solid #ddd;
 	position: relative;
-	// padding: 5px;
-	background: $bg-color;
+	display: inline-block;
+	margin: $clock-spacing;
+	$size: $clock-width;
+	width: $size;
+	height: $size;
+	border-radius: $size;
+	background: $l-clock-bg;
+	@include dark(){
+		background: $d-clock-bg;
+	}
 	&:after {
 		content: "";
 		position: absolute;
 		top: 0;
 		left: 0;
-		border: $border-width solid $border-color;
+		border: $border-width solid;
 		width: 100%;
 		height: 100%;
 		border-radius: 100%;
+		border-color: $l-clock-border;
+		@include dark(){
+			border-color: $d-clock-border;
+		}
 	}
-	display: inline-block;
-
-	margin: $clock-spacing;
-
-	$size: $clock-width;
-	width: $size;
-	height: $size;
-	border-radius: $size;
-
 	line {
 		transform-origin: center;
 		stroke-width: $stroke-width;
-		stroke: $line-color;
-		// transform-origin: center bottom;
+		stroke: $l-clock-line;
+		@include dark(){
+			stroke: $d-clock-line;
+		}
 	}
 	circle {
-		fill: $dot-color;
+		fill: $l-clock-dot;
+		@include dark(){
+			fill: $d-clock-dot;
+		}
 	}
 }

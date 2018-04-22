@@ -11,8 +11,11 @@ $body-default: #333;
 $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
 
-
-// ******** app stuff ********
+/* 
+	************
+	app stuff
+	************
+*/
 
 // clock variables (also used in .jsx)
 $clock-radius: 30px;
@@ -23,31 +26,24 @@ $clock-spacing: 2px;
 $stroke-width: 5px;
 $border-width: 5px;
 
-// styles
+// ******** colors ********
 
 // light
-$line-color: #4e4e4e;
-$line-color: #6d6d6d; // <--- change to that?
-// $line-color: #2196F3; // <--- change to that?
-// $line-color: #546e7a;
-// $dot-color: #5f5f5f;
-$dot-color: darken($line-color, 10%);
+$l-body: #f9f9f9;
+$l-clock-line: #6d6d6d;
+$l-clock-dot: darken($l-clock-line, 10%);
+$l-clock-border: #f0f0f0;
+$l-clock-bg: #fefefe;
 
+$l-icon-fill: $l-clock-line;
+$l-tooltip-bg: $l-clock-line;
 
-$border-color: #f0f0f0;
-$bg-color: #fefefe;
-$body: #f9f9f9;
+// dark
+$d-body: #2d3438;
+$d-clock-line: darken(#eeeeee, 5%);
+$d-clock-dot: #c8d3d8;
+$d-clock-border: darken($d-body, 1%);
+$d-clock-bg: lighten($d-body, 6%);
 
-
-$icon-fill: #607d8b;
-$icon-fill: $line-color;
-
-
-$tooltip-bg: $line-color;
-// $icon-fill: #4e4e4e;
-// yellow
-// $line-color: #4e4e4e;
-// $dot-color: #5f5f5f;
-// $border-color: #ffd044;
-// $bg-color: #fefefe;
-// $body: #ffd968;
+$d-icon-fill: $d-clock-line;
+$d-tooltip-bg: darken($d-body, 4%);
