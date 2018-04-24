@@ -42,9 +42,6 @@ if (typeof config.entry === 'object'){
 }
 function constructHMREntry(entry){
 	return [
-		// activate HMR for React
-		'react-hot-loader/patch',
-
 		// bundle the client for webpack-dev-server
 		// and connect to the provided endpoint
 		`webpack-dev-server/client?http://localhost:${DEV_SERVER_PORT}`,
