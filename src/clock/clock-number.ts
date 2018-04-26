@@ -7,7 +7,7 @@ const EASING = [1.00, 0.88, 0.69, 1.02]
 const bezier = Bezier(...EASING)
 
 export default class ClockNumber {
-	constructor(row, number){
+	constructor(row: HTMLElement, number: number){
 		const p = pattern[number];
 
 		// create `clock-number` container
@@ -46,7 +46,7 @@ export default class ClockNumber {
 		let startTime: number;
 
 		const clocks = this._clocks;
-		const duration = random(3200, 5000);
+		const duration = random(3100, 4900);
 
 		return function(now){
 			if (!startTime){
@@ -74,7 +74,7 @@ export default class ClockNumber {
 	}
 
 	// cancel RAF
-	RF?: number;
+	RF: number = 0;
 	_cancelRAF(){
 		window.cancelAnimationFrame(this.RF)
 	}

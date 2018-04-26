@@ -1,5 +1,5 @@
 const RADIUS: number = 30;
-const CIRCLE_RADIUS = 4;
+const CIRCLE_RADIUS = 5;
 
 export default class Clock {
 	constructor(container: HTMLElement, a: number, b: number){
