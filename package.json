@@ -1,4 +1,19 @@
 {
+   "name": "96 clocks",
+   "version": "1.0.0",
+   "description": "96 mini clocks, 1 time.",
+   "main": "src/index.js",
+   "repository": {
+     "type": "git",
+     "url": "git+https://github.com/catc/96-clocks.git"
+   },
+   "homepage": "https://catc.github.io/96-clocks",
+   "keywords": [
+     "time",
+     "clocks"
+   ],
+   "author": "Catalin Covic <catalin.covic@gmail.com>",
+   "license": "MIT",
    "scripts": {
       "dev": "node webpack.dev.js",
       "build": "NODE_ENV=production node webpack.prod.js",
