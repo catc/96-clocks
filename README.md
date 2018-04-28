@@ -6,7 +6,7 @@
 <br/>
 
 <div align="center">
-    <img src="./src/static/clock.gif" width="450" />
+    <img src="./static/clock.gif" width="450" />
     <br>
     <sub>
         Inspired by a

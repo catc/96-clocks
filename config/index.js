@@ -23,5 +23,5 @@ module.exports = {
 	// directory where build assets will be resolved to on server.
 	// so if your static assets are server from `/static/vendor.js`,
 	// then change to `/static/`
-	BUILD_PUBLIC_PATH: '/'
+	BUILD_PUBLIC_PATH: '/96-clocks/'
 }
