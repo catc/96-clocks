@@ -1,5 +1,5 @@
 {
-   "name": "96 clocks",
+   "name": "96-clocks",
    "version": "1.0.0",
    "description": "96 mini clocks, 1 time.",
    "main": "src/index.js",
